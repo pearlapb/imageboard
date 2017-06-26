@@ -1,0 +1,64 @@
+<section id="main" ng-controller="uploadImageCtrl">
+    <h2>UPLOAD A LOCAL FILE</h2>
+    <div ng-if="imageUploaded">
+        <p>Image successfully uploaded!</p>
+        <img src="{{newImage}}"/>
+    </div>
+    <form class="form" id="upload-form" ng-submit="update()">
+        <div id="choose-info">
+            <input class="blue" type="text" name="choose-username" id="choose-username" placeholder="username" ng-model="image.username"/>
+            <input class="blue" type="text" name="choose-title" id="choose-title" placeholder="title" ng-model="image.title"/>
+            <input class="blue" type="text" name="choose-description" id="choose-description" placeholder="description" ng-model="image.description"/>
+        </div>
+        <div id="send-image">
+            <input type="file" name="file" id="choose-file" ng-model="image.file"/>
+            <div id="type-of-file">
+                <label for="choose-file">Choose a file..</label>
+                <p>or</p>
+                <input class="blue" type="text" name="url" id="choose-url" ng-model="image.imageUrl" placeholder="paste image url"/>
+            </div>
+            <button ng-click="uploadImage(image)" type="submit" id="upload">UPLOAD</button>
+        </div>
+    </form>
+</section>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- <div id="line"></div> -->
+<!-- <h2>IMAGE FROM WEB URL</h2>
+<form class="form">
+<input type="text" name="choose-username" id="choose-username" value="USERNAME"></input>
+<input type="text" name="choose-title" id="choose-title" value="TITLE"></input>
+<input type="text" name="choose-description" id="choose-description" value="DESCRIPTION"></input>
+<input type="text" name="pasted-url" id="pasted-url"></input>
+<label for="pasted-url">Choose a file..</label>
+<button id="download">Upload</button>
+</form> -->

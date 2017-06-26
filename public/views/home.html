@@ -1,0 +1,13 @@
+
+<div id="home-section" ng-controller="imageList">
+    <input class="blue" placeholder="search by title" ng-model="search.title"/>
+    <section id="latest-posts">
+        <div ng-if="images.length > 0" ng-repeat="image in images | filter:search | reverse | limitTo: imagePreviewLimit" class="photo">
+                <p class="user">Uploaded by <strong>{{image.username}}</strong></p>
+                <a ui-sref="singleImage({imageId: image.id})"><img src="{{image.image}}"/></a>
+                <p class="title"><span>{{image.title}}</span> ♡ {{image.likes}}</p>
+                <p class="description">{{image.description | limitTo: 70}} {{image.description.length > 70 ? '...' : ''}}</p>
+        </div>
+    </section>
+    <button class="basic-button" ng-click="loadMoreImagePreviews(6)">MORE</button>
+</div>

@@ -1,0 +1,30 @@
+<section id="single-image" ng-controller="singlePageCtrl">
+    <div id="single-image-div">
+        <div ng-if="!likes" id="likes-and-title"><h2><span ng-click="likeImage()" id="like-span">♡ {{imageInfo.likes}}</span> &nbsp; | &nbsp; {{imageInfo.title}}</h2></div>
+        <div ng-if="likes" id="likes-and-title"><h2><span ng-click="unlikeImage()" id="like-span">♡ {{likes}}</span> &nbsp; | &nbsp; {{imageInfo.title}}</h2></div>
+        <p>Uploaded by {{imageInfo.username}}</p>
+        <img src="{{imageInfo.image}}"/>
+        <div id="description"><p>{{imageInfo.description}}</p></div>
+    </div>
+    <div id="comments-area">
+        <h2>Comments</h2>
+        <div id="list-comments">
+            <div class="commentLine" ng-if="successComment">
+                <p class="username-comment"><em>{{successComment.username}} at {{successComment.commented_at}}</em></p>
+                <p class="content-comment">{{successComment.comment}}</p>
+            </div>
+            <div ng-if="comments.length > 0" ng-repeat="comment in comments | reverse | limitTo: commentNumberLimit" class="commentLine">
+                <p class="username-comment"><em>{{comment.username}} at {{comment.commented_at}}</em> :</p>
+                <p class="content-comment">{{comment.comment}}</p>
+            </div>
+            <button ng-if="comments.length > commentNumberLimit" ng-click="loadMoreComments(2)">MORE</button>
+        </div>
+        <form id="add-comment" class="form" ng-submit="update()">
+            <h3>Post a comment</h3>
+            <input class="white" type="text" id="comment-user" ng-model="comment.user" placeholder="username"/>
+            <input class="white" type="text" id="comment-text" ng-model="comment.text" placeholder="Type your comment"/>
+            <button id="post-comment" ng-click="sendComment(comment)" type="submit">Post</button>
+        </form>
+    </div>
+</section>
+<button ui-sref="home" class="basic-button">Back</button>

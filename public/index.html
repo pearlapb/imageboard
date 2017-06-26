@@ -1,0 +1,28 @@
+<!doctype html>
+<html>
+
+<head>
+    <title>Web Comics</title>
+    <link href="/public/assets/favicon.png" type="image/x-icon" rel="icon" />
+    <link rel="stylesheet" type="text/css" href="/public/style.css">
+    <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.8/angular.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-router/0.3.2/angular-ui-router.min.js"></script>
+    <!-- Add link for mobile -->
+</head>
+
+<body ng-app="myApp">
+
+    <h1>Comic upload</h1>
+
+    <nav-bar></nav-bar> <!-- Injecting nav bar -->
+    <div ui-view="main"></div> <!-- Injecting main content-->
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script src="/app/app.js"></script>
+    <script src="/app/routes.js"></script>
+    <script src="/app/upload.js"></script>
+    <script src="/public/script.js" charset="utf-8"></script>
+</body>
+</html>

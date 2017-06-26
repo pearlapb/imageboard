@@ -1,0 +1,410 @@
+/*===========OVERALL LAYOUT============*/
+
+body {
+    font-family: Roboto, sans-serif;
+    background-color: RoyalBlue;
+    color: white;
+    text-align: center;
+    position: relative;
+}
+
+/*----Input fields----*/
+input {
+    text-align: center;
+    font-size: 15px;
+}
+input.blue {
+    color: white;
+}
+input.white {
+    color: RoyalBlue
+}
+input.blue:focus {
+    outline: none;
+    box-shadow: 0 0 10px #FFFFFF;
+}
+input.white:focus {
+    outline: none;
+    box-shadow: 0 0 10px RoyalBlue;
+}
+input::placeholder {
+    font-style: italic;
+    text-align: center;
+}
+input.blue {
+    border: 1px solid white;
+    background-color: RoyalBlue;
+}
+input.white {
+    background-color: white;
+    color: RoyalBlue;
+    border: 1px solid RoyalBlue;
+}
+input.blue::placeholder {
+    color: yellow;
+}
+input.white::placeholder {
+    color: DarkGrey;
+}
+
+/*----Buttons----*/
+button.basic-button {
+    color: white;
+    font-size: 15px;
+    width: 150px;
+    padding: 15px;
+    cursor: pointer;
+    border: none;
+    background-color: CornflowerBlue;
+    border: 1px solid white;
+    cursor: pointer;
+    margin-bottom: 50px;
+}
+
+button.basic-button:hover {
+    background-color: #5b90ef;
+}
+
+h1 {
+    font-size: 50px;
+}
+
+#navbar {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center;
+    height: auto;
+}
+
+#navbar > a {
+    background-color: White;
+    color: RoyalBlue;
+    width: 200px;
+    padding: 15px;
+    cursor: pointer;
+    margin: 10px;
+    text-decoration: none;
+}
+
+/*===========MAIN============*/
+
+#latest-posts {
+    border: 1px solid white;
+    margin: 30px;
+    height: auto;
+    padding: 10px;
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-around;
+    align-content: space-between;
+}
+
+#home-section {
+    margin-top: 20px;
+}
+
+#home-section > input {
+    width: 200px;
+    height: 10px;
+    padding: 10px;
+    margin: 10px;
+}
+
+.photo {
+    padding: 20px;
+    background-color: white;
+    color: RoyalBlue;
+    width: 300px;
+    height: 300px;
+    margin: 10px;
+}
+
+.photo > p {
+    margin: 5px;
+}
+
+.photo > .user {
+    align-self: flex-start;
+}
+
+.photo > .title > span {
+    align-self: flex-end;
+    text-decoration: underline;
+}
+
+.photo > .description {
+    align-self: flex-end;
+    font-style: italic;
+}
+
+.photo > a > img {
+    align-self: center;
+    max-width: 200px;
+    max-height: 200px;
+}
+
+
+/*===========UPLOAD============*/
+
+#main {
+    border: 1px solid white;
+    padding: 10px;
+    height: auto;
+    background-color: RoyalBlue;
+    width: 500px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 30px;
+}
+
+form {
+    display: flex;
+    flex-flow: column wrap;
+    align-content: center;
+}
+
+form > #choose-info {
+    margin-left: auto;
+    margin-right: auto;
+    display: flex;
+    flex-flow: column wrap;
+    justify-content: center;
+    align-items: center;
+}
+
+form > #choose-info > input {
+    height: 30px;
+    width: 440px;
+    margin: 10px;
+}
+
+form > #choose-info > #choose-description {
+    width: 440px;
+    height: 100px;
+}
+
+form > #send-image {
+    display: flex;
+    flex-flow: column nowrap;
+}
+
+form > #send-image > #choose-file {
+	width: 0.1px;
+	height: 0.1px;
+	opacity: 0;
+	overflow: hidden;
+	position: absolute;
+	z-index: -1;
+}
+
+form > #send-image > #type-of-file {
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: center;
+    width: 500px;
+    margin-bottom: 20px;
+}
+
+form > #send-image > #type-of-file > label {
+    height: 20px;
+    width: 150px;
+    padding: 15px;
+    background-color: CornflowerBlue;
+    color: white;
+    border: 1px solid white;
+    font-size: 15px;
+    vertical-align: middle;
+    cursor: pointer;
+    margin: 10px;
+}
+
+form > #send-image > #type-of-file > label:hover {
+    background-color: #5b90ef;
+}
+
+form > #send-image > #type-of-file > p {
+    margin: 10px;
+    padding: 10px;
+    width: 50px;
+    margin: 0px;
+    align-self: center;
+}
+
+form > #send-image > #type-of-file > #choose-url {
+    width: 150px;
+    height: 30px;
+    color: white;
+    border: 1px solid white;
+    background-color: RoyalBlue;
+    font-size: 15px;
+    padding: 10px;
+    margin: 10px;
+}
+
+form > #send-image > button {
+    margin-top: 25px;
+    display: flex;
+    align-self: center;
+    align-content: center;
+    justify-content: center;
+    height: 50px;
+    width: 100px;
+    padding: 10px;
+    background-color: CornflowerBlue;
+    color: white;
+    border: 1px solid white;
+    font-size: 15px;
+    cursor: pointer;
+    margin: 10px;
+}
+
+form > #send-image > button:hover {
+    background-color: #5b90ef;
+}
+
+#line {
+    margin-top: 20px;
+    margin-bottom: 20px;
+    margin-left: auto;
+    margin-right: auto;
+    background-color: white;
+    width: 50%;
+    height: 1px;
+}
+
+#pasted-url {
+    height: 17px;
+    width: 150px;
+    padding: 16px;
+    background-color: white;
+    color: RoyalBlue;
+    border: none;
+    font-size: 15px;
+    vertical-align: middle;
+    margin-right: 10px;
+}
+
+/*===========SINGLE IMAGE PAGE============*/
+
+#single-image {
+    margin: 30px;
+    height: auto;
+    padding: 10px;
+}
+
+/*----image, info & likes----*/
+
+#single-image-div {
+    margin: 20px;
+    border: 1px solid white;
+}
+
+#single-image-div > img {
+    max-width: 60%;
+}
+
+#single-image-div > p {
+    font-size: 15px;
+    font-style: italic;
+}
+
+#description {
+    padding: 20px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+
+#like-span:hover {
+    font-weight: bold;
+    color: yellow;
+    cursor: pointer;
+}
+
+/*----comments----*/
+
+#comments-area {
+    margin: 20px;
+    padding: 10px;
+}
+
+#comments-area > #add-comment {
+    margin-top: 20px;
+    margin-left: auto;
+    margin-right: auto;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    background-color: white;
+    border-radius: 10px;
+    color: RoyalBlue;
+}
+
+#comments-area > #add-comment > input {
+    margin: 10px;
+}
+
+#comments-area > #add-comment > #comment-user {
+    height: 30px;
+    width: 100px;
+}
+
+
+#comments-area > #add-comment > #comment-text {
+    width: 400px;
+    height: 100px;
+}
+
+#comments-area > #add-comment > #post-comment {
+    height: 30px;
+    width: 50px;
+    float: right;
+    background-color: white;
+    color: RoyalBlue;
+    border: none;
+    font-size: 15px;
+    vertical-align: middle;
+    cursor: pointer;
+    margin: 10px;
+    font-weight: bold;
+}
+
+#comments-area > #add-comment > #post-comment:hover {
+    color: grey;
+}
+
+#comments-area > h2 {
+    margin-top: 50px;
+}
+
+#comments-area > #list-comments > button {
+    background-color: RoyalBlue;
+    color: white;
+    font-weight: bold;
+    border: none;
+}
+
+#comments-area > #list-comments > button:hover {
+    cursor: pointer;
+    color: yellow;
+}
+
+.username-comment {
+    font-size: 15px;
+    margin-bottom: 0px;
+}
+
+.content-comment {
+    margin-top: 0px;
+    color: yellow;
+}
+
+/*===========LISTS============*/
+
+ul li {
+    list-style-type: none;
+}
+
+ul {
+    padding-left: 0px;
+}
