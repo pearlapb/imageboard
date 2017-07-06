@@ -7,6 +7,7 @@ app.use('/uploads', express.static(__dirname + '/uploads'));
 app.use(require('body-parser').urlencoded({     extended: false }));
 
 var db = require('./config/db.js');
+var s3 = require('./config/toS3.js');
 var util = require('./config/util.js');
 
 var multer = require('multer');
@@ -40,13 +41,14 @@ app.post('/uploadImage', uploader.single('file'), function(req, res) {
             });
         });*/
     } else if (req.file) {
-        db.uploadImage(`/uploads/${req.file.filename}`, req.body.user, req.body.title, req.body.description).then(function(results) {
-            console.log('Image was successfully uploaded', results);
-            res.json({
-                success: true,
-                file: results.rows[0].image
+        s3.makeS3Request( req, res, () => {
+            db.uploadImage(`https://s3.amazonaws.com/webcomicsboard/${req.file.filename}`, req.body.user, req.body.title, req.body.description).then(function(results) {
+                res.json({
+                    success: true,
+                    file: results.rows[0].image
+                });
             });
-        });
+        })
     } else {
         res.json({
             success: false
@@ -112,8 +114,6 @@ app.post('/singleLike/:imageId', function(req, res) {
     var imageId = req.params.imageId;
     var numberOfLikes = req.body.likes;
     db.addLikeForSingleImage(numberOfLikes, imageId).then(function(results) {
-        console.log('The like worked!', results.rows[0]);
-        console.log('LIIIIIKES!', results.rows[0].likes);
         res.json({
             success: true,
             file: results.rows[0]
@@ -129,6 +129,6 @@ app.get('*', function(req, res) {
     res.sendFile(__dirname + '/public/index.html');
 });
 
-app.listen(8080, function() {
+app.listen(process.env.PORT || 8080, function() {
     console.log('LISTENING.');
 });

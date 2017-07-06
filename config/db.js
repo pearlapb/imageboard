@@ -1,9 +1,13 @@
 var spicedPg = require('spiced-pg');
-var db = spicedPg("postgres:funkyChicken:letmein@localhost:5432/images");
+let dbUrl;
+if (!process.env.DATABASE_URL) {
+    dbUrl = require('./secrets.json').dbUrl;
+} else {
+    dbUrl = process.env.DATABASE_URL;
+}
+var db = spicedPg(dbUrl);
 
 function uploadImage(file, username, title, description) {
-
-    console.log('inside the uploadImage Function in db.js');
     let q = `INSERT INTO images (image, username, title, description)
             VALUES ($1, $2, $3, $4)
             RETURNING *;`;
