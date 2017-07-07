@@ -1,6 +1,6 @@
 # Image Board SPA
 
-This is an Image Board Single Page Application (for web comics! Because why not). It uses Angular1.js for client-side rendering. This project was created during my 10th week of coding at SPICED Academy.
+This is an Image Board Single Page Application (for web comics! Because why not). It uses AngularJS for client-side rendering. This project was created during my 10th week of coding at SPICED Academy. Check it out [here](https://web-comics-board.herokuapp.com/#/) and upload your favourite comic! 
 
 ### Features:
 
